@@ -1,49 +1,29 @@
 #ifndef _modelmanager
 #define _modelmanager
 #include "Model.h"
-#include <map>
-#include <string>
 
+//Singleton class --> Can be accessed to Retrieve and Load models by the user
 class ModelManager
 {
 	friend class ModelManagerAttorney;
-public: // ----> USER METHODS
+public: /// ----> USER METHODS
 
-	/// <summary>
 	/// Loads a model for use by a GameObject.
-	/// 
 	/// Takes a user-defined path to the model as input. To be called from LoadAllResources.cpp
-	/// </summary> 
-	/// \ingroup ModelManager
 	static void Load(const char* t_fileName) { Instance().privLoad(t_fileName); }
 
-	/// <summary>
 	/// Called from a GameObject to retrieve a loaded model
-	/// </summary> 
-	/// \ingroup ModelManager
 	static Model* Get(const char* t_fileName) { return Instance().privGet(t_fileName); }
 
-	/// <summary>
 	/// Loads a premade model for use by a GameObject.
-	/// 
 	/// Takes a preMadeModel (from the Model class) as input. To be called from LoadAllResources.cpp
-	/// </summary> 
-	/// \ingroup ModelManager
 	static void Load(Model::PreMadeModels t_premademodel) { Instance().privLoad(t_premademodel); }
 
-	/// <summary>
 	/// Called from a GameObject to retrieve a loaded model
-	/// </summary> 
-	/// \ingroup ModelManager
 	static Model* Get(Model::PreMadeModels t_premademodel) { return Instance().privGet(t_premademodel); }
 
 public:
-	/// <summary>
-	/// A default model to load is a frigate. Load this model (to use for a GameObject) in LoadAllResources.cpp.
-	/// 
-	/// Default Key Syntax: 	ModelManager::Load("DefaultAssets/space_frigate.azul");
-	/// </summary> 
-	/// \ingroup ModelManager
+	
 	static std::string defaultAssetKey;
 
 private:

@@ -27,7 +27,7 @@ SpriteFont* SpriteFontManager::privGet(const char* t_chosenName)
 	{
 		return this->m_fontMap.find(t_chosenName)->second;			//return model, if it is valid
 	}
-	catch (std::out_of_range exc)		// if not, throw
+	catch (std::out_of_range exc)							// if not, throw
 	{
 		throw std::runtime_error(" ERROR: Model (ID: " + (std::string) t_chosenName + ") not found. ");
 	}

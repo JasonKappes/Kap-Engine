@@ -1,13 +1,11 @@
 #include "ShaderManager.h"
 #include "ShaderObject.h"
-#include <stdexcept>
-#include <iostream>
-#include <DebugOut.h>
 
 ShaderManager* ShaderManager::m_ptrInstance = nullptr;
 
 std::string ShaderManager::defaultKeyAsset = "DefaultAssets/textureFlatRender";
 
+//Loads a shader from a given filename
 void ShaderManager::privLoad(const char* t_fileName)
 {
 	try
@@ -16,11 +14,12 @@ void ShaderManager::privLoad(const char* t_fileName)
 			throw std::runtime_error(" ERROR: Duplicate shader (ID: " + (std::string)t_fileName + ") loaded. ");
 		}
 	}
-	catch (std::out_of_range exc) {		// if not, then add it		
+	catch (std::out_of_range exc) {						// if not, then add it		
 		this->m_shaderMap[t_fileName] = new ShaderObject(t_fileName);
 	}
 }
 
+//Retrieves a shader from a given filename
 ShaderObject* ShaderManager::privGet(const char* t_fileName)
 {
 	try
@@ -28,7 +27,7 @@ ShaderObject* ShaderManager::privGet(const char* t_fileName)
 		return this->m_shaderMap.at(t_fileName);	//return shader, if it is valid
 	}
 	catch (std::out_of_range exc) 
-	{		// if not, throw
+	{							// if not, throw
 		throw std::runtime_error(" ERROR: Shader (ID: " + (std::string) t_fileName + ") not found. ");
 	}
 }

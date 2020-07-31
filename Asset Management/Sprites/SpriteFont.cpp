@@ -9,13 +9,7 @@
 #include <DebugOut.h>
 #include <iterator>
 
-//*********************************************************
-// Don't forget to add the associated libs to your project 
-// Properties/Linker/Input  -> add these
-//		xmllite.lib
-//		shlwapi.lib
-//*********************************************************
-
+//Loads a sprite font
 SpriteFont::SpriteFont(std::string path)
 {
 	// <Load associated texture into TextureManager>
@@ -33,12 +27,9 @@ SpriteFont::~SpriteFont()
 	for (it = this->fontmap.begin(); it != this->fontmap.end();)
 	{
 		if (this->fontmap.size() > 0) {
-			DebugMsg::out(" \n before SpriteFont destroy... size: %d  ", this->fontmap.size());
 			sf = it->second;
 			this->fontmap.erase(it++);
 			delete sf;
-
-			DebugMsg::out(" \n SpriteFont Destructor... size: %d  ", this->fontmap.size());
 		}
 		else{
 			it++;
@@ -64,7 +55,7 @@ void SpriteFont::XMLtoCollection(std::string filename)
 	const wchar_t* stringValue = nullptr;
 	unsigned int stringSize = 0;
 
-	int key = 0;	// ASCII value
+	int key = 0;		// ASCII value
 	int x = 0;		// x, y position of the glyph in texture
 	int y = 0;
 	int w = 0;		// width and height of the gluth in texture
@@ -118,7 +109,6 @@ void SpriteFont::XMLtoCollection(std::string filename)
 
 				KapSprite* c = new KapSprite(path, x + 0.0f, y + 0.00f, w - 0.00f, h - 0.00f); //shave some off the top
 				this->fontmap.insert({ key, c });
-				DebugMsg::out("Font %s: %d %d %d %d creating glyph for ASCII %i\n", Name.c_str(), x, y, w, h,  key);
 			}
 
 		} break;

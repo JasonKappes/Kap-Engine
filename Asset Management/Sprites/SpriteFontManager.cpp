@@ -44,6 +44,5 @@ void SpriteFontManager::privDelete()
 
 	this->m_fontMap.clear();
 
-	DebugMsg::out(" \n SPRITE FONT MANAGER: size: %d ", this->m_fontMap.size());
 	delete this->m_ptrInstance;
 }

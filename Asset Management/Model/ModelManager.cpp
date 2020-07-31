@@ -1,21 +1,19 @@
 #include "ModelManager.h"
-#include <stdexcept>
-#include <iostream>
-#include <DebugOut.h>
 
 ModelManager* ModelManager::m_ptrInstance = nullptr;
 
 std::string ModelManager::defaultAssetKey = "DefaultAssets/space_frigate.azul";
 
+//Loads a model from a filename
 void ModelManager::privLoad(const char* t_fileName)
 {
 	try
 	{
-		if (this->m_modelMap.at(t_fileName) != NULL) { 		//check if model has been added
+		if (this->m_modelMap.at(t_fileName) != NULL) {
 			throw std::runtime_error(" ERROR: Duplicate model (ID: " + (std::string)t_fileName + ") loaded. ");
 		} 
 	}
-	catch (std::out_of_range exc) {		// if not, then add it
+	catch (std::out_of_range exc) {
 
 		this->m_modelMap[t_fileName] = new Model(t_fileName);
 		return;
@@ -23,6 +21,7 @@ void ModelManager::privLoad(const char* t_fileName)
 	return;
 }
 
+//Loads a premade model
 void ModelManager::privLoad(Model::PreMadeModels t_premademodel)
 {
 	std::string key = privKeyConversion(t_premademodel);
@@ -40,26 +39,28 @@ void ModelManager::privLoad(Model::PreMadeModels t_premademodel)
 	return;
 }
 
+//Retrieves a model (If it has been loaded) with a given filename 
 Model* ModelManager::privGet(const char* t_fileName)
 {
 	try
 	{
-		return this->m_modelMap.at(t_fileName);			//return model, if it is valid
+		return this->m_modelMap.at(t_fileName);			// return model, if it is valid
 	}
-	catch (std::out_of_range exc)		// if not, throw
+	catch (std::out_of_range exc)					// if not, throw
 	{		
 		throw std::runtime_error(" ERROR: Model (ID: " + (std::string) t_fileName + ") not found. ");
 	}	
 }
 
+//Retrieves a premade model (If it has been loaded)
 Model* ModelManager::privGet(Model::PreMadeModels t_premademodel)
 {
 	std::string key = privKeyConversion(t_premademodel);
 	try
 	{
-		return this->m_modelMap.at(key);	//return model, if it is valid
+		return this->m_modelMap.at(key);		// return model, if it is valid
 	}
-	catch (std::out_of_range exc)		// if not, throw
+	catch (std::out_of_range exc)				// if not, throw
 	{		
 		throw std::runtime_error(" ERROR: Model (ID: " + key + ") not found. ");
 	}
@@ -94,8 +95,6 @@ void ModelManager::privDelete()
 	}
 
 	this->m_modelMap.clear();
-
-	DebugMsg::out(" \n MODEL MANAGER: size: %d ", this->m_modelMap.size());
 
 	delete this->m_ptrInstance;
 }

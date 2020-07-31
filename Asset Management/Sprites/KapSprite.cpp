@@ -8,7 +8,6 @@
 
 KapSprite::KapSprite(std::string t_name)
 {
-	//this->m_model = new Model(Model::PreMadeModels::UnitSquareXY);
 	this->m_model = ModelManager::Get(Model::PreMadeModels::UnitSquareXY);
 	this->m_shader = ShaderManager::Get("spriteRender");
 
@@ -17,18 +16,15 @@ KapSprite::KapSprite(std::string t_name)
 	this->m_rectPosSize = new Rect(150.0f, 500.0f, 100.0f, 100.0f);
 	this->m_sprite = new GraphicsObject_Sprite(m_model, m_shader, this->m_image, this->m_rectPosSize);
 
-	// Stitch
 	this->m_rotZ.set(ROT_Z, 0.0f);
 
 	this->SetAngle(0);
 	this->SetScaleFactor(1.0f, 1.0f);
-	//this->SetScalePixel(300, 300);
 	this->SetPosition(150, 500);
 }
 
-KapSprite::KapSprite(std::string t_imageName, float x, float y, float w, float h) //creates glyphs
+KapSprite::KapSprite(std::string t_imageName, float x, float y, float w, float h)
 {
-	//this->m_model = new Model(Model::PreMadeModels::UnitSquareXY);
 	this->m_model = ModelManager::Get(Model::PreMadeModels::UnitSquareXY);
 	this->m_shader = ShaderManager::Get("spriteRender");
 	this->m_image = ImageManager::Get(t_imageName);

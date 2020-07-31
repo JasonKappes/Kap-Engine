@@ -1,6 +1,7 @@
 #ifndef _modelmanagerattorney
 #define _modelmanagerattorney
 
+//can only be called at the Engine-Level to delete the Model Manager Singleton
 class ModelManagerAttorney
 {
 	friend class KapEngine;

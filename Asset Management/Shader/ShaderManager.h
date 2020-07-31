@@ -10,29 +10,18 @@ class PreMadeModels;
 class ShaderManager
 {
 	friend class ShaderManagerAttorney;
-public: // ----> USER METHODS
+public: /// ----> USER METHODS
 
-	/// <summary>
 	/// Loads a shader for use by a GameObject.
-	/// 
 	/// Takes a user-defined path to the shader as input. To be called from LoadAllResources.cpp
-	/// </summary> 
-	/// \ingroup ShaderManager
 	static void Load(const char* t_fileName) { Instance().privLoad(t_fileName); }
 
-	/// <summary>
 	/// Called from a GameObject to retrieve a loaded shader
-	/// </summary> 
-	/// \ingroup ShaderManager
 	static ShaderObject* Get(const char* t_fileName) { return Instance().privGet(t_fileName); }
 
 public:
-	/// <summary>
 	/// A default sprite font to load is Dosis2. Load this font (to use for a SpriteString) in LoadAllResources.cpp.
-	/// 
 	/// Default Key Syntax: 	ShaderManager::Load("DefaultAssets/textureFlatRender");
-	/// </summary> 
-	/// \ingroup ShaderManager
 	static std::string defaultKeyAsset;
 
 private:
@@ -41,7 +30,7 @@ private:
 	ShaderManager operator=(const ShaderManager&) = delete;
 	~ShaderManager() = default;
 
-	static ShaderManager& Instance()	    // Access reference (all public methods will be static)
+	static ShaderManager& Instance()	    
 	{
 		if (!m_ptrInstance)
 			m_ptrInstance = new ShaderManager;

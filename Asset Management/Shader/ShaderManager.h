@@ -7,6 +7,7 @@
 class ShaderObject;
 class PreMadeModels;
 
+//Handles all of the shaders
 class ShaderManager
 {
 	friend class ShaderManagerAttorney;

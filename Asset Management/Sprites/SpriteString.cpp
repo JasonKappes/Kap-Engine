@@ -9,6 +9,7 @@ SpriteString::SpriteString(SpriteFont* font, std::string text, int x, int y)
 	Set(*font, text, x, y);
 }
 
+//Renders each glyph in the sprite string
 void SpriteString::Render()
 {
 	float lastWidth = (float)this->m_posX;
@@ -38,6 +39,7 @@ void SpriteString::SetPosition(int t_newX, int t_newY)
 	this->m_posY = t_newY;
 }
 
+//Sets the wording of a sprite string
 void SpriteString::Set(SpriteFont& font, std::string phrase, int x, int y)
 {
 	this->m_glyphCollection = new std::vector<SpriteFont::Glyph*>();

@@ -3,32 +3,21 @@
 #include "SpriteFont.h"
 #include <vector>
 
+// A sprite string holds a sequence of sprite glpyhs... This is a way to display messages on screen
 class SpriteString
 {
 public:
-
-	/// <summary>
+	
 	/// This method should be called on a SpriteString object from Draw2D() to show this text on screen.
-	/// </summary> 
-	/// \ingroup SpriteString
 	void Render();
 
-	/// <summary>
 	/// Returns the pixel height of the SpriteString.
-	/// </summary> 
-	/// \ingroup SpriteString
 	int GetHeight();
 
-	/// <summary>
 	/// Returns the pixel width of the SpriteString.
-	/// </summary> 
-	/// \ingroup SpriteString
 	int GetWidth();
 
-	/// <summary>
 	/// Sets the position of the SpriteString when shown on screen.
-	/// </summary> 
-	/// \ingroup SpriteString
 	void SetPosition(int xPosition, int yPosition);
 
 public:

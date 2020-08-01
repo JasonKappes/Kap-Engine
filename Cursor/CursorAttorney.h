@@ -2,6 +2,7 @@
 #define _cursorattorney
 #include "Cursor.h"
 
+//Helps manage access to Cursor Singleton
 class CursorAttorney
 {
 	friend class KapEngine;

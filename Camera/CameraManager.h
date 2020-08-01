@@ -7,15 +7,15 @@ class GodCam;
 
 class CameraManager : public Align16
 {
-public: // ---->  ENGINE METHODS
+public: /// ---->  ENGINE METHODS
 	CameraManager();
 	CameraManager(const CameraManager&) = delete;
 	CameraManager operator=(const CameraManager&) = delete;
 	~CameraManager();
-
+	
 	Camera* Get3DCamera();
 	Camera* Get2DCamera();
-
+	
 	void SetCameraStartingPosition(Vect cameraStartingPosition, Vect playerStartingPosition);
 
 	void AddCameraMovement(Vect dir);
@@ -42,16 +42,17 @@ private:
 	Camera* m_camera3D;
 	Camera* m_camera2D;
 	GodCam* godCam;
-
-	Vect m_camPos;
+	
 	Matrix m_camRot;
+	Matrix m_camRot;
+	Matrix m_cameraPosition;
+	Matrix m_godCamRot;
+	
 	Vect m_camUp;
 	Vect m_camDir;
 	Vect m_Look;
 	Vect m_playerPosition;
-	Matrix m_cameraPosition;
-
-	Matrix m_godCamRot;
+	Vect m_camPos;
 	Vect m_godCamPos;
 
 	Vect m_startingCamPos;

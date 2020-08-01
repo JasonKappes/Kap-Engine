@@ -1,6 +1,7 @@
 #ifndef _screenlogattorney
 #define _screenlogattorney
 
+//Controls access to the ScreenLog
 class ScreenLogAttorney
 {
 	friend class KapEngine;

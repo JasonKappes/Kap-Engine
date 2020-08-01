@@ -3,6 +3,7 @@
 #include "SystemUpdate.h"
 #include "DrawableManager.h"
 
+//If EDITOR MODE is disabled, this is the draw mode chosen
 class GameDraw : public SystemUpdate
 {
 public:

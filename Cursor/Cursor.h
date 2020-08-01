@@ -4,19 +4,29 @@
 
 class CursorPosition;
 
+//Singleton: Provides access to various information relating to the cursor every frame
 class Cursor
 {
 	friend class CursorAttorney;
 
-public: //USER METHODS
-
+public: // --> USER METHODS
+	
+	//Returns the distance the cursor moved up last frame
 	static int GetUpCursorMovementAmount();
+	
+	//Returns the distance the cursor moved down last frame
 	static int GetDownCursorMovementAmount();
+	
+	//Returns the distance the cursor moved left last frame
 	static int GetLeftCursorMovementAmount();
+	
+	//Returns the distance the cursor moved right last frame
 	static int GetRightCursorMovementAmount();
-
+	
+	//Returns the cursor coordinates on the game window
 	static void GetCursorCoordinates(int& x, int& y);
 
+	//Returns the distance the cursor can go on the X and Y axis
 	static void GetCursorBounds(int& xBound, int& yBound);
 	
 private:

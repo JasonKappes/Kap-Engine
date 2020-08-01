@@ -8,14 +8,10 @@ class SpriteFont;
 class ScreenLog
 {
 	friend class ScreenLogAttorney;
-public:
+public: /// ---> USER METHODS
 
-	/// <summary>
 	/// Can be called by the player to print information in the top-left of the game window
-	/// 
 	/// Recommended Syntax: ScreenLog::Add("message info: %d" , DataVariable);
-	/// </summary> 
-	/// \ingroup VariousSceneMethods
 	static void Add(char* A, ...);
 
 private:

@@ -4,6 +4,7 @@
 #include "SerializableManager.h"
 #include "WorldEditorManager.h"
 
+//If the EDITOR MODE is enabled, a this is the Draw mode chosen to only render serializable objects
 class EditorDraw : public SystemUpdate
 {
 public:

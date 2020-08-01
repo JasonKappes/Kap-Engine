@@ -8,6 +8,7 @@
 class KapSprite;
 class Texture;
 
+// A SpriteFont holds all of the glyphs associated with a font-type
 class SpriteFont
 {
 public:

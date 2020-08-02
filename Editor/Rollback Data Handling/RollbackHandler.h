@@ -4,6 +4,8 @@
 
 class PastEventCommand;
 
+//World-edit mode class
+//Triggers rollback commands that can undo world-information changes
 class RollbackHandler
 {
 	friend class RollbackHandlerAttorney;
@@ -20,7 +22,10 @@ private:
 		return *m_ptrInstance;
 	}
 
+	//This executes the most recent world-edit change command
 	static void Rollback();
+	
+	//Adds a world-edit command to the stack
 	static void LogEvent(PastEventCommand*);
 	static void Delete();
 

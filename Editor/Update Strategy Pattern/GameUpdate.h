@@ -22,6 +22,7 @@ public:
 		const CollidableManager&, AlarmableManager*, const MouseEventManager&);
 
 protected:
+	//Looks for Keyboard and mouse events, updates objects, checks for collisions, registers alarms
 	void Tick() const override;
 
 private:

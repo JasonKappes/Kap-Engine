@@ -11,6 +11,7 @@ class xRotUI;
 class yRotUI;
 class zRotUI;
 
+//Manages the rotation indicators
 class RotationUI : public GroupUI
 {
 public:
@@ -19,12 +20,16 @@ public:
 	RotationUI operator=(const RotationUI&) = delete;
 	~RotationUI();
 
+	//This allows the various rotation indicators to be selected (registers them for selection)
 	void EnableIndicator() override;
 
+	//This removes the rotation indicators from being selected (deregisters them for selection)
 	void ResetIndicator() override;
 
+	//Tells each rotation indicator to be rendered
 	void DrawUI() override;
 
+	//Updates Rotation indicators world information
 	void UpdateUI(float radius, const Vect& center) override;
 
 private:

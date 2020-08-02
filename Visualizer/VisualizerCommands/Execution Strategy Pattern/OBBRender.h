@@ -3,6 +3,7 @@
 #include "VolumeShow.h"
 #include "VisualizerAttorney.h"
 
+//Renders an OBB (oriented bounding box) at the given world location, with the given color
 class OBBRender : public VolumeShow
 {
 public:

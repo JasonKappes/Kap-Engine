@@ -5,6 +5,7 @@
 
 class WorldUI;
 
+//Base class for pos/rot/scale indicators
 class GroupUI
 {
 public:

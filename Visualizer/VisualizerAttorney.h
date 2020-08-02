@@ -7,6 +7,7 @@ class CollisionVolumeAABB;
 class CollisionVolumeOBB;
 class CollisionVolumeBSphere;
 
+//Helps manage access to the Visualizer class
 class VisualizerAttorney
 {
 public:

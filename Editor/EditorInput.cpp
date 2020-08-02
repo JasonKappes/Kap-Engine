@@ -159,11 +159,3 @@ EditorInput::~EditorInput()
 	delete this->activeObject;
 	delete this->emptyObject;
 }
-
-void EditorInput::Selection(Selectable* s)
-{
-	UIselected = true;
-
-	//callback
-	Touchable::Selection(s);
-}

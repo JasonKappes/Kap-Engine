@@ -5,6 +5,7 @@
 class CollisionVolumeBSphere;
 class VolumeShow;
 
+//Command pattern that renders a shape (OBB, AABB, or BSPHERE) at the given location with the given color
 class VisualizeRegistrationCommand : public VisualizeTestCommandBase
 {
 public:

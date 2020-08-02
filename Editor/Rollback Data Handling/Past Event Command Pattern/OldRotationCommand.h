@@ -4,6 +4,7 @@
 
 class Serializable;
 
+//This command is generated when an object is rotated in world-edit mode. Hold old rotation object data.
 class OldRotationCommand : public PastEventCommand
 {
 public:

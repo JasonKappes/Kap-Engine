@@ -3,6 +3,7 @@
 #include "VolumeShow.h"
 #include "VisualizerAttorney.h"
 
+//This object renders an AABB (axis aligned bounding box) at the given location with the given color
 class AABBRender : public VolumeShow
 {
 public:

@@ -3,6 +3,7 @@
 #include "VolumeShow.h"
 #include "VisualizerAttorney.h"
 
+//This object renders a sphere at the given world location and given color
 class BSphereRender : public VolumeShow
 {
 public:

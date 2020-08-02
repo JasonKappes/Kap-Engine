@@ -9,6 +9,7 @@ class AlarmableManager;
 class UpdatableManager;
 class CollidableManager;
 
+//(Strategy Pattern Object): This defines what systems are being updated while the game (not world-edit mode) is running
 class GameUpdate : public SystemUpdate
 {
 public:

@@ -5,6 +5,7 @@
 class Serializable;
 class Transform;
 
+//This command is generated when an object is deleted. It holds world data for the recently deleted object.
 class ReviveSerializableCommand : public PastEventCommand
 {
 public:

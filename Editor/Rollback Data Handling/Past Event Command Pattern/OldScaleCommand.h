@@ -4,6 +4,7 @@
 
 class Serializable;
 
+//This command is generated when the scale of an object is changed. It holds old scale object data.
 class OldScaleCommand : public PastEventCommand
 {
 public:

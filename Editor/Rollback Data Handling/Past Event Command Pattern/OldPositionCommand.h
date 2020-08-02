@@ -4,6 +4,7 @@
 
 class Serializable;
 
+//This command is generated when an object is moved in world-edit mode. It holds old object data.
 class OldPositionCommand : public PastEventCommand
 {
 public:

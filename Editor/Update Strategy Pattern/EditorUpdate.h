@@ -5,6 +5,7 @@
 class KeyboardEventManager;
 class MouseEventManager;
 
+//(Strategy Pattern object): This defines what systems are updated during world-edit mode.
 class EditorUpdate : public SystemUpdate
 {
 public:
@@ -16,6 +17,7 @@ public:
 	EditorUpdate(const KeyboardEventManager&, const MouseEventManager&);
 
 protected:
+	//Keyboard and mouse events are looked for.
 	void Tick() const override;
 
 private:

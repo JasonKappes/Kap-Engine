@@ -1,56 +1,7 @@
 # Kap-Engine
-This is a 3D video game engine created with C++. It was built on top of a basic graphics package. This was a large-scale, 6 month software development project created from Jan. 2020 - June 2020. I received some high-level software design and math guidance from a DePaul professor.
 
-<br/>
-<p align="center">
-    <a href="https://sulu.io/" target="_blank">
-        <img width="50%" src="https://sulu.io/website/images/sulu.svg" alt="Sulu logo">
-    </a>
-</p>
 
-<br/>
-<p align="center">
-    <a href="https://github.com/sulu/sulu/blob/master/LICENSE" target="_blank">
-        <img src="https://img.shields.io/github/license/sulu/sulu.svg" alt="GitHub license">
-    </a>
-    <a href="https://github.com/sulu/sulu/releases" target="_blank">
-        <img src="https://img.shields.io/github/tag/sulu/sulu.svg" alt="GitHub tag (latest SemVer)">
-    </a>
-    <a href="https://github.com/sulu/sulu/actions" target="_blank">
-        <img src="https://img.shields.io/github/workflow/status/sulu/sulu/Test%20application/master.svg?label=github-actions" alt="GitHub actions status">
-    </a>
-    <a href="https://travis-ci.org/sulu/sulu/branches" target="_blank">
-        <img src="https://img.shields.io/travis/sulu/sulu/master.svg?label=travis" alt="Travis build">
-    </a>
-    <a href="https://circleci.com/gh/sulu/sulu/tree/master" target="_blank">
-        <img src="https://img.shields.io/circleci/build/github/sulu/sulu/master.svg?label=circleci" alt="CircleCI build">
-    </a>
-    <a href="https://github.com/sulu/sulu/commits/master" target="_blank">
-        <img src="https://img.shields.io/github/commit-activity/y/sulu/sulu.svg" alt="GitHub commit activity">
-    </a>
-    <a href="https://github.com/sulu/sulu/graphs/contributors" target="_blank">
-        <img src="https://img.shields.io/github/contributors-anon/sulu/sulu.svg" alt="GitHub contributors">
-    </a>
-    <a href="https://packagist.org/packages/sulu/sulu" target="_blank">
-        <img src="https://img.shields.io/packagist/dt/sulu/sulu.svg" alt="Packagist downloads">
-    </a>
-</p>
-<br/>
-
-[Sulu](https://sulu.io/) is a highly extensible open-source **PHP content management system based** on the [Symfony](https://symfony.com/) framework. Sulu is developed to deliver robust **multi-lingual and multi-portal websites** while providing an **intuitive and extensible administration interface** to manage the full content lifecycle. 
-
-Have a look at the official [Sulu website](https://sulu.io/) for a comprehensive list of Sulu's features, core values and use cases. 
-
-<br/>
-<p align="center">
-    <img width="80%" src="https://sulu.io/uploads/media/800x@2x/07/167-ezgif.gif?v=2" alt="Sulu Slideshow">
-</p>
-<br/>
-
-This repository contains the **core framework of the Sulu content management system**. The framework implements the functionality that is built into the Sulu content management system and therefore is a dependency of all Sulu projects. 
-
-If you want to **start a new Sulu project**, you might be interested in the [sulu/skeleton](https://github.com/sulu/skeleton) template repository. If you are planning to **extend your existing Sulu project**, visit the [Sulu organization](https://github.com/sulu) on GitHub for a complete list of official Sulu bundles.
-
+## -- Work in Progress -- 
 
 ## 🚀&nbsp; Installation and Documentation
 

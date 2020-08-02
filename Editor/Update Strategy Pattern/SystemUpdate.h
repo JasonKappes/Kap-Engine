@@ -1,6 +1,8 @@
 #ifndef _systemupdate
 #define _systemupdate
 
+//Update strategy pattern base class.
+//The derived child of this class defines what systems are being updated during a world-edit or regular run.
 class SystemUpdate
 {
 public:

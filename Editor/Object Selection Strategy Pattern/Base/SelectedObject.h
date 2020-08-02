@@ -7,6 +7,7 @@
 class Serializable;
 class Adjustment;
 
+//Strategy pattern base class for Active Object vs. Empty Object
 class SelectedObject
 {
 public:

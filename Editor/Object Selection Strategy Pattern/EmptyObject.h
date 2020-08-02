@@ -2,6 +2,7 @@
 #define _emptyobject
 #include "SelectedObject.h"
 
+//This is the "selected object" when no object is selected (in world edit mode)
 class EmptyObject : public SelectedObject
 {
 public:

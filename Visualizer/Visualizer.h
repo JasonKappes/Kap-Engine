@@ -14,6 +14,8 @@ class AABBRender;
 class OBBRender;
 class BSphereRender;
 
+//This renders shapes (for debugging purposed) at given locations.
+//It is a singleton that utilizes a factory pattern for visualization commands.
 class Visualizer : public Align16
 {
     friend class VisualizerAttorney;

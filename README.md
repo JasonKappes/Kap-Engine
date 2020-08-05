@@ -49,11 +49,6 @@ I put my heart into this project, and I love every bit of it. This project was a
 * The User can register "alarms" for any class, which is just a callback after a certain amount of time. The user can display 2D messages on screen. There are a few preset camera angles the user can use to get started with their game. There is a visualizer which allows the user to visualize all of the collision volumes on screen, useful during world editing mode.
 
 
-## 🚀 User API Examples
-
-## -- This is a Work in Progress -- 
-
-
   
 
 

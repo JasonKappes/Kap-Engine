@@ -50,19 +50,24 @@ I put my heart into this project, and I love every bit of it. This project was a
 
 ## 🚀 User API Examples:
 
-### Example Constructor
+### Example Object Constructor
 ```
-Player::Player()
-{
-	SetSerializableGroup<FirstPersonPlayer>();                                                 //Enables this object's world data to be de/serialized for world editing
+void Player(){
 
-	Drawable::SubmitDrawRegistration();                                                        //This object will receive callbacks to its draw function
-	Updatable::SubmitUpdateRegistration();                                                     //This object will receive callbacks to its update function
+#enable object world data (of this type) to be de/serialized for world editing
+SetSerializableGroup<FirstPersonPlayer>();
 
-	transform->SetGraphicsObject(                                                              //This object selects it's model, shader, and texture
-  new GraphicsObject_TextureFlat(ModelManager::Get("sphere.azul"),
-		ShaderManager::Get("textureFlatRender"), 
-  TextureManager::Get("metal_rust.tga")));
+#Receive callbacks to overriden draw() function
+Drawable::SubmitDrawRegistration();
+
+#Receive callbacks to overriden update() function
+Updatable::SubmitUpdateRegistration();
+
+#Set model, shader, and texture for this object
+transform->SetGraphicsObject(
+new GraphicsObject_TextureFlat(ModelManager::Get("sphere.azul"),
+	ShaderManager::Get("textureFlatRender"), 
+TextureManager::Get("metal_rust.tga")));
 
 	Collidable::SubmitCollisionRegistration();                                                 //This object registers itself for collision
 	Collidable::SetColliderModel(transform->object->getModel(), Collidable::Volume::OBB);      //This object sets it's collision model and volume
@@ -77,14 +82,13 @@ Player::Player()
 
 	Touchable::SubmitMouseRegistration(AZUL_MOUSE::BUTTON_LEFT, MOUSE_EVENT_TYPE::PRESS);      //This object will receive callbacks for Left click press
 	Touchable::SubmitMouseRegistration(AZUL_MOUSE::BUTTON_LEFT, MOUSE_EVENT_TYPE::RELEASE);    //This object will receive callbacks for Left click release
-}
 ```
 
 ### Example Scene
 ```
 void Level1::Initialize()                 //Called at the start of the scene
 {
-	 SetTerrain("Desert");                   //Spawns a pre-loaded terrain for the level
+   SetTerrain("Desert");                   //Spawns a pre-loaded terrain for the level
   
 	 SetCollisionPair<Grunt, Player>();      //Tells the scene to check for collisions between Grunt and Player objects every frame. (Indiv. callbacks upon collision)
   SetCollisionPair<Bullet, Grunt>();   

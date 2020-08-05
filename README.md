@@ -66,22 +66,30 @@ Updatable::SubmitUpdateRegistration();
 #Set model, shader, and texture for this object
 transform->SetGraphicsObject(
 new GraphicsObject_TextureFlat(ModelManager::Get("sphere.azul"),
-	ShaderManager::Get("textureFlatRender"), 
+ShaderManager::Get("textureFlatRender"), 
 TextureManager::Get("metal_rust.tga")));
 
-	Collidable::SubmitCollisionRegistration();                                                 //This object registers itself for collision
-	Collidable::SetColliderModel(transform->object->getModel(), Collidable::Volume::OBB);      //This object sets it's collision model and volume
-	Collidable::SetCollidableGroup<FirstPersonPlayer>();                                       //This object sets it's collision group
+#This object registers itself for collision
+Collidable::SubmitCollisionRegistration();
 
-	Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_W, EVENT_TYPE::HELD_DOWN);                  //This object will receive callbacks for WASD press every frame
-	Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_A, EVENT_TYPE::HELD_DOWN);
-	Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_S, EVENT_TYPE::HELD_DOWN);
-	Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_D, EVENT_TYPE::HELD_DOWN);
+#This object sets it's collision model and volume
+Collidable::SetColliderModel(transform->object->getModel(), Collidable::Volume::OBB);
 
-	Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_SPACE, EVENT_TYPE::PRESS);                  //This object will receive callbacks for space press
+#This object sets it's collision group
+Collidable::SetCollidableGroup<FirstPersonPlayer>();
 
-	Touchable::SubmitMouseRegistration(AZUL_MOUSE::BUTTON_LEFT, MOUSE_EVENT_TYPE::PRESS);      //This object will receive callbacks for Left click press
-	Touchable::SubmitMouseRegistration(AZUL_MOUSE::BUTTON_LEFT, MOUSE_EVENT_TYPE::RELEASE);    //This object will receive callbacks for Left click release
+#This object will receive callbacks for WASD key presses every frame
+Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_W, EVENT_TYPE::HELD_DOWN);
+Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_A, EVENT_TYPE::HELD_DOWN);
+Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_S, EVENT_TYPE::HELD_DOWN);
+Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_D, EVENT_TYPE::HELD_DOWN);
+
+#This object will receive callbacks for space presses
+Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_SPACE, EVENT_TYPE::PRESS);
+
+#This object will receive callbacks for a left mouse button press and release
+Touchable::SubmitMouseRegistration(AZUL_MOUSE::BUTTON_LEFT, MOUSE_EVENT_TYPE::PRESS);
+Touchable::SubmitMouseRegistration(AZUL_MOUSE::BUTTON_LEFT, MOUSE_EVENT_TYPE::RELEASE); 
 ```
 
 ### Example Scene

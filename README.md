@@ -53,63 +53,80 @@ I put my heart into this project, and I love every bit of it. This project was a
 ### Example Object Constructor
 ```
 void Player(){
-
-#enable object world data (of this type) to be de/serialized for world editing
-SetSerializableGroup<FirstPersonPlayer>();
-
-#Receive callbacks to overriden draw() function
+```
+```
+#receive callbacks to overriden draw() function
 Drawable::SubmitDrawRegistration();
-
-#Receive callbacks to overriden update() function
+```
+```
+#receive callbacks to overriden update() function
 Updatable::SubmitUpdateRegistration();
-
-#Set model, shader, and texture for this object
+```
+```
+#set model, shader, and texture for this object
 transform->SetGraphicsObject(
-new GraphicsObject_TextureFlat(ModelManager::Get("sphere.azul"),
-ShaderManager::Get("textureFlatRender"), 
-TextureManager::Get("metal_rust.tga")));
-
-#This object registers itself for collision
+	new GraphicsObject_TextureFlat(ModelManager::Get("sphere.azul"),
+	ShaderManager::Get("textureFlatRender"), 
+	TextureManager::Get("metal_rust.tga")));
+```
+```
+#this object registers itself for collision
 Collidable::SubmitCollisionRegistration();
-
-#This object sets it's collision model and volume
+```
+```
+#this object sets it's collision model and volume
 Collidable::SetColliderModel(transform->object->getModel(), Collidable::Volume::OBB);
-
-#This object sets it's collision group
+```
+```
+#this object sets it's collision group
 Collidable::SetCollidableGroup<FirstPersonPlayer>();
-
-#This object will receive callbacks for WASD key presses every frame
+```
+```
+#this object will receive callbacks for WASD key presses every frame
 Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_W, EVENT_TYPE::HELD_DOWN);
 Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_A, EVENT_TYPE::HELD_DOWN);
 Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_S, EVENT_TYPE::HELD_DOWN);
 Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_D, EVENT_TYPE::HELD_DOWN);
-
-#This object will receive callbacks for space presses
+```
+```	
+#this object will receive callbacks for space presses
 Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_SPACE, EVENT_TYPE::PRESS);
-
-#This object will receive callbacks for a left mouse button press and release
+```
+```
+#this object will receive callbacks for a left mouse button press and release
 Touchable::SubmitMouseRegistration(AZUL_MOUSE::BUTTON_LEFT, MOUSE_EVENT_TYPE::PRESS);
 Touchable::SubmitMouseRegistration(AZUL_MOUSE::BUTTON_LEFT, MOUSE_EVENT_TYPE::RELEASE); 
+```
+```
+#enable object world data (for this type) to be de/serialized for world editing
+SetSerializableGroup<FirstPersonPlayer>();
 ```
 
 ### Example Scene
 ```
-void Level1::Initialize()                 //Called at the start of the scene
-{
-   SetTerrain("Desert");                   //Spawns a pre-loaded terrain for the level
-  
-	 SetCollisionPair<Grunt, Player>();      //Tells the scene to check for collisions between Grunt and Player objects every frame. (Indiv. callbacks upon collision)
-  SetCollisionPair<Bullet, Grunt>();   
-  SetCollisionSelf<Grunt, Grunt>();       //Tells the scene to check for collisions between Grunt objects every frame (Indiv. callbacks upon collision)
-  
-  SetCollisionTerrain<Player>();          //Tells the scene to check for collisions between Player objects every frame
-  SetCollisionTerrain<Grunt>();
-
-  this->enemy_boss = new EnemyBoss();
+#called at the start of this scene
+void Level1::Initialize(){
+```
+```
+#spawns a pre-loaded terrain for the level   
+SetTerrain("Desert");
+```
+```
+#check for collisions between these pairs of objects
+SetCollisionPair<Grunt, Player>();
+SetCollisionPair<Bullet, Grunt>();
+SetCollisionSelf<Grunt>();
+```
+```
+#tells the scene to check for collisions between the terrain and Player objects every frame
+SetCollisionTerrain<Player>();
+SetCollisionTerrain<Grunt>();
 }
-
-void Level1::SceneEnd()                   //Allows the user to cleanup memory
+```
+```
+#allows the user to cleanup memory if needed
+void Level1::SceneEnd()
 {
-  delete this->enemy_boss;
+  
 }
 ```

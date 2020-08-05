@@ -48,8 +48,56 @@ I put my heart into this project, and I love every bit of it. This project was a
 #### Other Features
 * The User can register "alarms" for any class, which is just a callback after a certain amount of time. The user can display 2D messages on screen. There are a few preset camera angles the user can use to get started with their game. There is a visualizer which allows the user to visualize all of the collision volumes on screen, useful during world editing mode.
 
+## 🚀 User API Examples:
 
+### Example Constructor
+```
+Player::Player()
+{
+	SetSerializableGroup<FirstPersonPlayer>();                                                 //Enables this object's world data to be de/serialized for world editing
+
+	Drawable::SubmitDrawRegistration();                                                        //This object will receive callbacks to its draw function
+	Updatable::SubmitUpdateRegistration();                                                     //This object will receive callbacks to its update function
+
+	transform->SetGraphicsObject(                                                              //This object selects it's model, shader, and texture
+  new GraphicsObject_TextureFlat(ModelManager::Get("sphere.azul"),
+		ShaderManager::Get("textureFlatRender"), 
+  TextureManager::Get("metal_rust.tga")));
+
+	Collidable::SubmitCollisionRegistration();                                                 //This object registers itself for collision
+	Collidable::SetColliderModel(transform->object->getModel(), Collidable::Volume::OBB);      //This object sets it's collision model and volume
+	Collidable::SetCollidableGroup<FirstPersonPlayer>();                                       //This object sets it's collision group
+
+	Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_W, EVENT_TYPE::HELD_DOWN);                  //This object will receive callbacks for WASD press every frame
+	Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_A, EVENT_TYPE::HELD_DOWN);
+	Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_S, EVENT_TYPE::HELD_DOWN);
+	Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_D, EVENT_TYPE::HELD_DOWN);
+
+	Inputable::SubmitKeyRegistration(AZUL_KEY::KEY_SPACE, EVENT_TYPE::PRESS);                  //This object will receive callbacks for space press
+
+	Touchable::SubmitMouseRegistration(AZUL_MOUSE::BUTTON_LEFT, MOUSE_EVENT_TYPE::PRESS);      //This object will receive callbacks for Left click press
+	Touchable::SubmitMouseRegistration(AZUL_MOUSE::BUTTON_LEFT, MOUSE_EVENT_TYPE::RELEASE);    //This object will receive callbacks for Left click release
+}
+```
+
+### Example Scene
+```
+void Level1::Initialize()                 //Called at the start of the scene
+{
+	 SetTerrain("Desert");                   //Spawns a pre-loaded terrain for the level
   
+	 SetCollisionPair<Grunt, Player>();      //Tells the scene to check for collisions between Grunt and Player objects every frame. (Indiv. callbacks upon collision)
+  SetCollisionPair<Bullet, Grunt>();   
+  SetCollisionSelf<Grunt, Grunt>();       //Tells the scene to check for collisions between Grunt objects every frame (Indiv. callbacks upon collision)
+  
+  SetCollisionTerrain<Player>();          //Tells the scene to check for collisions between Player objects every frame
+  SetCollisionTerrain<Grunt>();
 
+  this->enemy_boss = new EnemyBoss();
+}
 
-
+void Level1::SceneEnd()                   //Allows the user to cleanup memory
+{
+  delete this->enemy_boss;
+}
+```

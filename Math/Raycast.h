@@ -12,22 +12,13 @@ public:
 	Raycast operator=(const Raycast&) = delete;
 	~Raycast() = default;
 
-	/// <summary>
 	/// Detects a collision between a BSPHERE and the mouse
-	/// </summary> 
-	/// \ingroup MathTools
 	static bool MouseSphereCollision(Vect pos, float rad);
 
-	/// <summary>
 	/// Detects a collision between an OBB and the mouse
-	/// </summary> 
-	/// \ingroup MathTools
 	static bool MouseBoxCollision(const Vect& min, const Vect& max);
 
-	/// <summary>
 	/// Get a ray coming from the mouse
-	/// </summary> 
-	/// \ingroup MathTools
 	static Vect GetMouseWorldSpaceRay();
 
 private:

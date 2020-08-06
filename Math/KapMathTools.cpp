@@ -6,11 +6,6 @@
 #include <math.h>
 #include "DebugOut.h"
 
-float KapMathTools::Magnitude(const Vect& a)
-{
-    return sqrt(a.X() * a.X() + a.Y() * a.Y() + a.Z() * a.Z());
-}
-
 float KapMathTools::CalculateClampCoordinate(float value, float minValue, float maxValue)
 {
     if (value < minValue)       return minValue;
@@ -57,7 +52,7 @@ bool KapMathTools::Intersect(const CollisionVolumeBSphere& sphere, const Collisi
 bool KapMathTools::Intersect(const CollisionVolumeBSphere& A, const CollisionVolumeBSphere& B)
 {
     Vect posDst = A.GetCenter() - B.GetCenter();
-    float distance = Magnitude(posDst);
+    float distance = EuclidianNorm(posDst);
     float sumRadius = A.GetRadius() + B.GetRadius();
     return distance < sumRadius;
 }
